@@ -16,7 +16,7 @@
         <Label Content="Search by ID" HorizontalAlignment="Left" Margin="34,76,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="273,82,0,0" VerticalAlignment="Top" Click="btnSearch_Click"/>
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="72,47,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnAdd_Click"/>
-        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="131,47,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="131,47,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnDelete_Click"/>
         <Label Content="ID" HorizontalAlignment="Left" Margin="57,169,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="150,164,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="57,197,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>

@@ -29,6 +29,7 @@ namespace LinqICE
             InitializeComponent();
             ReadData();
             ViewList();
+            Reset();
         }
 
         public void ViewList()
@@ -78,11 +79,21 @@ namespace LinqICE
 
         private void lstOutput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int Selected = lstOutput.SelectedIndex;
-            String strName =testData[Selected].Name;
-            String strID = testData[Selected].Id+"";
-            txtName.Text = strName;
-            txtID.Text = strID;
+            try
+            {
+                int Selected = lstOutput.SelectedIndex;
+                String strName = testData[Selected].Name;
+                String strID = testData[Selected].Id + "";
+                txtName.Text = strName;
+                txtID.Text = strID;
+                btnUpdate.IsEnabled = true;
+                btnDelete.IsEnabled = true; 
+                btnAdd.IsEnabled = true;
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
@@ -90,6 +101,17 @@ namespace LinqICE
             int Selected = lstOutput.SelectedIndex;
             testData[Selected].Name= txtName.Text;
             testData[Selected].Id = Convert.ToInt32(txtID.Text);
+            UpdateData();
+            ViewList();
+            Reset();
+        }
+        private void Reset()
+        {
+            txtID.Text = "";
+            txtName.Text = "";
+            btnDelete.IsEnabled = false;
+            btnUpdate.IsEnabled = false;
+            lstOutput.TabIndex = 0;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -100,6 +122,7 @@ namespace LinqICE
             txtID.Clear();
             UpdateData();
             ViewList();
+            Reset();
         }
 
 
@@ -166,6 +189,15 @@ namespace LinqICE
             }
             ReadData();
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            int Selected = lstOutput.SelectedIndex;
+            testData.RemoveAt(Selected);
+            UpdateData();
+            ViewList();
+            Reset();
         }
+    }
     }
 
